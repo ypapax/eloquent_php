@@ -21,4 +21,11 @@ class UsersController extends Controller
         User::create($u);
         return $u;
     }
+
+    public function group()
+    {
+//        https://stackoverflow.com/a/51891537/1024794
+        return User::groupBy('name')->selectRaw('name, count(*) as total')
+            ->get();
+    }
 }

@@ -15,3 +15,4 @@ Route::get('/', 'PagesController@home');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/user', 'UsersController@list');
 Route::get('/addUser', 'UsersController@add');
+Route::get('/group', 'UsersController@group');

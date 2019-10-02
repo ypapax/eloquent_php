@@ -63,4 +63,8 @@ install() {
   composer install
 }
 
+g() {
+  curl $host/group
+}
+
 "$@"
