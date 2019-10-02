@@ -12,15 +12,22 @@ mig() {
 
 dev() {
   mig
+  install
   php artisan serve
 }
 
+host=http://localhost:8000
+
 queryStr() {
-  curl http://localhost:8000/?name=Goodwin
+  curl $host/?name=Goodwin
 }
 
 controller() {
   php artisan make:controller PagesController
+}
+
+usersController() {
+  php artisan make:controller UsersController
 }
 
 compFile=docker-compose.yml
@@ -38,6 +45,22 @@ repost() {
   done
   set -e
   post
+}
+
+u() {
+  curl $host/user
+}
+
+ua() {
+  curl $host/addUser
+}
+
+addlog4php() {
+  composer require apache/log4php
+}
+
+install() {
+  composer install
 }
 
 "$@"
